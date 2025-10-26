@@ -35,14 +35,13 @@ const Header = () => {
 
         <div className="gap-2 md:gap-3 flex items-center text-md md:text-lg">
           <a
-            href="tel:0568514272"
+            href="tel:+966548415191"
             className="flex items-center gap-2 md:gap-3 cursor-pointer bg-blue-400 text-white px-2 md:px-4 p-1 md:py-2 rounded-full hover:bg-blue-500 transition-all duration-300 transform hover:scale-105 shadow-lg"
           >
             اتصل بنا <FaPhoneAlt className="text-lg md:text-xl" />
           </a>
           <a
-            href="https://wa.me/966568514272?text=مؤسسه الاخلاص "
-            target="_blank"
+              href="https://wa.me/966548415191?text=مؤسسه الاخلاص"
             className="flex gap-2 md:gap-3 items-center cursor-pointer bg-green-500 text-white px-2 md:px-4 p-1 md:py-2 rounded-full hover:bg-green-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
           >
             راسلنا <SiWhatsapp className="text-xl md:text-2xl" />

@@ -1,117 +1,130 @@
+//__Footer__//
 import React, { useState } from "react";
-import {
-  FaFacebookF,
-  FaTwitter,
-  FaInstagram,
-  FaWhatsapp,
-  FaPhoneAlt,
-  FaEnvelope,
-} from "react-icons/fa";
+import { FaPhoneAlt, FaWhatsapp } from "react-icons/fa";
 import { MdMessage } from "react-icons/md";
 import { motion } from "framer-motion";
 import ShowAlert from "./ShowAlert";
 
 const Footer = () => {
-  //__Alert__//
   const [showAlert, setShowAlert] = useState(false);
 
   return (
-    <footer className="mt-20 relative bg-gradient-to-br from-blue-300 via-black to-blue-400 text-white py-10 px-6 md:px-20 overflow-hidden">
-      <div className="absolute inset-0 bg-black/30 backdrop-blur-[2px] z-0"></div>
+    <footer className="mt-20 relative bg-gradient-to-br from-blue-600 via-gray-700 to-gray-700 text-white py-12 px-6 md:px-20 overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 bg-black/30 backdrop-blur-[1px] z-0"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/40 z-0"></div>
 
-      {/*__Parent_Motion_Div*/}
+      {/* Animated Background Elements */}
+      <div className="absolute top-0 left-0 w-72 h-72 bg-blue-400/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-gray-500/20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+
+      {/* Main Content */}
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
+        initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true }}
-        className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10"
+        className="relative z-10 max-w-4xl mx-auto text-center"
       >
-        {/*__About__*/}
+        {/* Company Name with Gradient */}
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7 }}
+          initial={{ scale: 0.8, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
+          className="mb-6"
         >
-          <h2 className="text-2xl font-bold mb-4">مؤسسة الإخلاص للصيانة</h2>
-          <p className="text-gray-200 leading-relaxed">
-            خبرة أكثر من 10 سنوات في صيانة الافران والتكييفات بجميع أنواعها.
-            نقدم خدماتنا في مدينتى جده ومكه المكرمه بأكملها بجودة واحترافية عالية.
+          <h2 className="p-2 text-4xl md:text-5xl font-bold mb-3 bg-gradient-to-r from-blue-200 via-blue-100 to-gray-200 bg-clip-text text-transparent">
+            مؤسسة الإخلاص للصيانة
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-300 to-gray-300 mx-auto rounded-full"></div>
+        </motion.div>
+
+        {/* Description */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          viewport={{ once: true }}
+          className="text-lg md:text-xl text-gray-100 leading-relaxed mb-8 max-w-2xl mx-auto"
+        >
+          <span className="bg-gradient-to-l from-blue-200 to-gray-200 bg-clip-text text-transparent font-semibold">
+            خبرة أكثر من 10 سنوات
+          </span>{" "}
+          في صيانة الافران والتكييفات بجميع أنواعها. نقدم خدماتنا في مدينتى جده
+          ومكه المكرمه بأكملها بجودة واحترافية عالية.
+        </motion.p>
+
+        {/* Contact Icons */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          viewport={{ once: true }}
+          className="flex justify-center items-center gap-8 mb-8"
+        >
+          {/* Phone Icon */}
+          <motion.a
+            href="tel:+966548415191"
+            whileHover={{ scale: 1.15, y: -5 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 300 }}
+            className="group relative"
+          >
+            <div className="bg-gradient-to-br from-blue-500 to-blue-700 p-4 rounded-2xl shadow-2xl group-hover:shadow-blue-500/25 transition-all duration-300">
+              <FaPhoneAlt className="text-white text-2xl" />
+            </div>
+            <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-black/80 text-white text-xs px-3 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+              اتصل بنا
+            </div>
+          </motion.a>
+
+          {/* WhatsApp Icon */}
+          <motion.a
+            href="https://wa.me/966548415191?text=مؤسسه الاخلاص"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.15, y: -5 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 300 }}
+            className="group relative"
+          >
+            <div className="bg-gradient-to-br from-green-500 to-green-700 p-4 rounded-2xl shadow-2xl group-hover:shadow-green-500/25 transition-all duration-300">
+              <FaWhatsapp className="text-white text-2xl" />
+            </div>
+            <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-black/80 text-white text-xs px-3 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+              واتساب
+            </div>
+          </motion.a>
+        </motion.div>
+
+        {/* Copyright */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          viewport={{ once: true }}
+          className="border-t border-white/30 pt-6"
+        >
+          <p className="text-gray-200 text-sm">
+            جميع الحقوق محفوظة © {new Date().getFullYear()}{" "}
+            <span className=" bg-gradient-to-r from-blue-200 to-gray-200 bg-clip-text text-transparent font-semibold">
+              مؤسسة الإخلاص للصيانة
+            </span>
           </p>
         </motion.div>
-
-        {/*__Contact__*/}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
-        >
-          <h3 className="text-xl font-semibold mb-4">تواصل معنا</h3>
-          <ul className="space-y-3 text-gray-200">
-            <li className="flex items-center gap-2 hover:translate-x-1 transition">
-              <FaPhoneAlt className="text-green-300" /> +966 555 000 123
-            </li>
-            <li className="flex items-center gap-2 hover:translate-x-1 transition">
-              <FaEnvelope className="text-green-300" /> info@ikhlaas-sa.com
-            </li>
-          </ul>
-        </motion.div>
-
-        {/*__Social__*/}
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          viewport={{ once: true }}
-        >
-          <h3 className="text-xl font-semibold mb-4">تابعنا</h3>
-          <div className="flex gap-4 justify-start sm:justify-center lg:justify-start">
-            {/*__Array_In_Div*/}
-            {[
-              { icon: <FaFacebookF />, link: "#" },
-              { icon: <FaTwitter />, link: "#" },
-              { icon: <FaInstagram />, link: "#" },
-              { icon: <FaWhatsapp />, link: "https://wa.me/01008790584" },
-            ].map((item, index) => (
-              <motion.a
-                key={index}
-                target="_blank"
-                href={item.link}
-                whileHover={{ scale: 1.15, rotate: 5 }}
-                transition={{ type: "spring", stiffness: 200 }}
-                className="bg-white/10 p-3 rounded-full hover:bg-green-400 transition"
-              >
-                {item.icon}
-              </motion.a>
-            ))}
-          </div>
-        </motion.div>
       </motion.div>
 
-      {/*__CopyRight__*/}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1.2, delay: 0.5 }}
-        viewport={{ once: true }}
-        className="relative z-10 mt-10 border-t border-white/20 pt-6 text-center text-white text-sm"
-      >
-        جميع الحقوق محفوظة © {new Date().getFullYear()} مؤسسة الإخلاص للصيانة
-      </motion.div>
-
-      {/*__Fixed_Button_Send_Message__*/}
+      {/* Floating Contact Button */}
       <motion.button
         onClick={() => setShowAlert(true)}
-        rel="noopener noreferrer"
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
+        initial={{ scale: 0, rotate: -180 }}
+        animate={{ scale: 1, rotate: 0 }}
         transition={{ duration: 0.6, type: "spring" }}
         whileHover={{ scale: 1.2, rotate: 10 }}
-        className="cursor-pointer fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl z-50 transition"
+        whileTap={{ scale: 0.9 }}
+        className="fixed bottom-6 right-8 cursor-pointer bg-gradient-to-br from-blue-500 to-gray-600 hover:from-blue-600 hover:to-gray-700 text-white p-4 rounded-2xl shadow-2xl z-50 transition-all duration-300"
       >
-        <MdMessage size={26} />
+        <MdMessage className="text-2xl" />
       </motion.button>
 
       {showAlert && (

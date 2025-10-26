@@ -19,14 +19,14 @@ function ShowAlert({ showAlert, setShowAlert }) {
 
           <div className="flex flex-col gap-3">
             <a
-              href="Services#services"
+              href="https://wa.me/966548415191?text=مؤسسه الاخلاص"
               className="flex items-center justify-center gap-2 bg-green-500 text-white py-2 rounded-lg font-medium hover:bg-green-600 transition"
             >
               <FaWhatsapp size={18} /> واتساب
             </a>
 
             <a
-              href="tel:0568514272"
+              href="tel:+966548415191"
               className="flex items-center justify-center gap-2 bg-blue-500 text-white py-2 rounded-lg font-medium hover:bg-blue-600 transition"
             >
               <FaPhone size={18} /> اتصال
